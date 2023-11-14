@@ -1,4 +1,4 @@
-# Proyecto_Arqui
+# Proyecto Arquitectura De Computadoras 1 - 2023
 
 Proyecto de la materia Arquitectura de Computadoras I, basado en la implementacion de un programa en assembly/systemVerilog para el manejo de la placa DE0-nano. Prendiendo los leds, hacemos las secuencias de:
 - Carrera por tabla
