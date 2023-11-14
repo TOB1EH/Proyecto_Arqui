@@ -115,7 +115,7 @@ add r1,r1,#4
 //-----------------------decrementar contador de iteracion
 subs r4,r4,#1
 bne #16
-b#0
+b#148
 
 //CASE 3:
 //#156--------------------------------------------AUTO FANTASTICO POR ALGORITMO------------------------------
@@ -187,7 +187,7 @@ SUBS R2, R2, #1
 BNE #44
 
 // Bucle infinito (vuelve a la linea 1)
-B #4
+B#156
 
 //#164 CASE 4:
 str r2,[r0,0x800]
