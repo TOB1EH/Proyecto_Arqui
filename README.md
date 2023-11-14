@@ -8,6 +8,6 @@ Proyecto de la materia Arquitectura de Computadoras I, basado en la implementaci
   
 ### Integrantes
 
-![FedericoA](https://github.com/FedericoA.png?size=70) [Federico Alloza](https://github.com/FedericoA)
+![FedericoA](https://github.com/fedealloza.png?size=70) [Federico Alloza](https://github.com/fedealloza)
 
 ![TOB1EH](https://github.com/TOB1EH.png?size=70) [Tobias Funes](https://github.com/TOB1EH)
