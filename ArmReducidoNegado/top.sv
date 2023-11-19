@@ -33,7 +33,7 @@ module dmem(input  logic        clk, we,
   logic [31:0] RAM[63:0];
   
   initial
-      $readmemh("C:\\Users\\PC_ADMIN\\Documents\\workSpace\\SystemVerilog\\ArmReducidoNegado\\dmem_io.dat",RAM);
+      $readmemh("C:\\Users\\PC_ADMIN\\Documents\\workSpace\\SystemVerilog\\Proyecto_Arqui\\ArmReducidoNegado\\dmem_io.dat",RAM);
 
   assign rd = RAM[a[31:2]]; // word aligned
 
@@ -47,7 +47,7 @@ module imem(input  logic [31:0] a,
   logic [31:0] RAM[255:0];
 
   initial
-      $readmemh("C:\\Users\\PC_ADMIN\\Documents\\workSpace\\SystemVerilog\\ArmReducidoNegado\\imem.dat",RAM);
+      $readmemh("C:\\Users\\PC_ADMIN\\Documents\\workSpace\\SystemVerilog\\Proyecto_Arqui\\ArmReducidoNegado\\imem.dat",RAM);
 
   assign rd = RAM[a[31:2]]; // word aligned
 endmodule

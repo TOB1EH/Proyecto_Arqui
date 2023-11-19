@@ -9,14 +9,14 @@ INport[4] => INport[4].IN1
 INport[5] => INport[5].IN1
 INport[6] => INport[6].IN1
 INport[7] => INport[7].IN1
-OUTport[0] <= port:outport.port3
-OUTport[1] <= port:outport.port3
-OUTport[2] <= port:outport.port3
-OUTport[3] <= port:outport.port3
-OUTport[4] <= port:outport.port3
-OUTport[5] <= port:outport.port3
-OUTport[6] <= port:outport.port3
-OUTport[7] <= port:outport.port3
+OUTport[0] << port:outport.port3
+OUTport[1] << port:outport.port3
+OUTport[2] << port:outport.port3
+OUTport[3] << port:outport.port3
+OUTport[4] << port:outport.port3
+OUTport[5] << port:outport.port3
+OUTport[6] << port:outport.port3
+OUTport[7] << port:outport.port3
 
 
 |top|arm:arm

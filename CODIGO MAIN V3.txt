@@ -99,29 +99,26 @@ b#100
 //r1 = 0
 add r1,r0,r0
 //------------------------R10 = DELAY TABLA (SEGUNDO DELAY)
-ldr r10,[r0,0x4]
+ldr r10,[r0,0x80]
 //------------------------r4 = 15
 add r4,r0,#15
 //------------------------R2=tabla[r1]
-ldr r2,[r1,0x8]
+ldr r2,[r1,0x84]
 //------------------------leds(r2)
 str r2,[r0,0x800]
 //------------------------delay()
 add r3,r0,r10
 subs r3,r3,#1
-bne #28
+bne #176
 //-----------------------incrementar indice r1
 add r1,r1,#4
 //-----------------------decrementar contador de iteracion
 subs r4,r4,#1
-bne #16
+bne #164
 b#148
 
 //CASE 3:
-//#156--------------------------------------------AUTO FANTASTICO POR ALGORITMO------------------------------
-
-// Iniciamos a cero el registro cero 
-SUB R0, R15, R15
+//#196--------------------------------------------AUTO FANTASTICO POR ALGORITMO------------------------------
 
 // - DESPLAZAMIENTO A IZQUIERDA -
 // Iniciamos a uno el registro uno
@@ -136,12 +133,12 @@ STR R1, [R0, #0x800]
 
 // - DELAY -
 // Cargamos el tiempo del delay en el registro 3
-LDR R3, [R0, #0x4]
+LDR R3, [R0, #0x8]
 
 SUBS R3, R3, #1
 // Finaliza el bucle del delay cuando R3 = 0
 // De lo contrario vuelve a la linea 5 (0 -> 5)
-BNE #20
+BNE #216
 
 // Suma R1 + R1 y lo almacena en R1 (multiplicamos x 2 para obtener el desplazamiento a izq)
 ADD R1, R1, R1
@@ -151,7 +148,7 @@ SUBS R2, R2, #1
 
 // Vuelve a la linea 3 si R2 != 0
 // Controla la bandera del desplazamiento a izquierda
-BNE #12
+BNE #208
 
 // - DESPLAZAMIENTO A DERECHA - 
 
@@ -168,7 +165,7 @@ ADD R4, R4, #1
 
 // Resta 2 a R1 hasta llegar a cero y finalizar el bucle, obteniendo asi la mitad de R1 almacenada en R4
 SUBS R1, R1, #2
-BNE #48
+BNE #244
 
 // Guarda R4 en R1 para encender el siguiente led al ultimo (retorno)
 ADD R1, R4, R0
@@ -177,18 +174,18 @@ ADD R1, R4, R0
 STR R1, [R0, 0x800]
 
 // - BUCLE DELAY - 
-LDR R3, [R0, #0x4]
+LDR R3, [R0, #0x8]
 SUBS R3, R3, #1
-BNE #72
+BNE #268
 
 // Resta 1 a R2 (Banderas para leds de retorno)
 SUBS R2, R2, #1
 // Bucle de la secuencia de retorno
-BNE #44
+BNE #240
 
 // Bucle infinito (vuelve a la linea 1)
-B#156
+B#196
 
-//#164 CASE 4:
+//#252 CASE 4:
 str r2,[r0,0x800]
-b#168
+b#256

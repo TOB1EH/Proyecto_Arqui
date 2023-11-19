@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Fri Nov 10 20:27:36 2023
+Fri Nov 17 20:56:25 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -65,13 +65,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Nov 10 20:27:35 2023       ;
+; Analysis & Synthesis Status        ; Successful - Fri Nov 17 20:56:25 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; top                                         ;
 ; Top-level Entity Name              ; top                                         ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 5,099                                       ;
-;     Total combinational functions  ; 2,607                                       ;
+; Total logic elements               ; 5,156                                       ;
+;     Total combinational functions  ; 2,664                                       ;
 ;     Dedicated logic registers      ; 2,577                                       ;
 ; Total registers                    ; 2577                                        ;
 ; Total pins                         ; 18                                          ;
@@ -185,15 +185,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                      ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; top.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv      ;         ;
-; imem.dat                         ; yes             ; Auto-Found Unspecified File  ; C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/imem.dat    ;         ;
-; dmem_io.dat                      ; yes             ; Auto-Found Unspecified File  ; C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/dmem_io.dat ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                     ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; top.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv      ;         ;
+; dmem_io.dat                      ; yes             ; Auto-Found Unspecified File  ; C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/dmem_io.dat ;         ;
+; imem.dat                         ; yes             ; Auto-Found Unspecified File  ; C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/imem.dat    ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -201,16 +201,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 5,099     ;
+; Estimated Total logic elements              ; 5,156     ;
 ;                                             ;           ;
-; Total combinational functions               ; 2607      ;
+; Total combinational functions               ; 2664      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 2220      ;
-;     -- 3 input functions                    ; 209       ;
-;     -- <=2 input functions                  ; 178       ;
+;     -- 4 input functions                    ; 2355      ;
+;     -- 3 input functions                    ; 194       ;
+;     -- <=2 input functions                  ; 115       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2517      ;
+;     -- normal mode                          ; 2574      ;
 ;     -- arithmetic mode                      ; 90        ;
 ;                                             ;           ;
 ; Total registers                             ; 2577      ;
@@ -223,8 +223,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 2577      ;
-; Total fan-out                               ; 17660     ;
-; Average fan-out                             ; 3.38      ;
+; Total fan-out                               ; 18029     ;
+; Average fan-out                             ; 3.42      ;
 +---------------------------------------------+-----------+
 
 
@@ -233,26 +233,26 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name ; Library Name ;
 +--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+-------------+--------------+
-; |top                           ; 2607 (4)            ; 2577 (0)                  ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |top                                                    ; top         ; work         ;
-;    |arm:arm|                   ; 1156 (0)            ; 513 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm                                            ; arm         ; work         ;
-;       |controller:c|           ; 15 (0)              ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|controller:c                               ; controller  ; work         ;
-;          |condlogic:cl|        ; 7 (3)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|controller:c|condlogic:cl                  ; condlogic   ; work         ;
-;             |condcheck:cc|     ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|controller:c|condlogic:cl|condcheck:cc     ; condcheck   ; work         ;
+; |top                           ; 2664 (3)            ; 2577 (0)                  ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |top                                                    ; top         ; work         ;
+;    |arm:arm|                   ; 1157 (0)            ; 513 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm                                            ; arm         ; work         ;
+;       |controller:c|           ; 20 (0)              ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|controller:c                               ; controller  ; work         ;
+;          |condlogic:cl|        ; 9 (4)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|controller:c|condlogic:cl                  ; condlogic   ; work         ;
+;             |condcheck:cc|     ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|controller:c|condlogic:cl|condcheck:cc     ; condcheck   ; work         ;
 ;             |flopenr:flagreg1| ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|controller:c|condlogic:cl|flopenr:flagreg1 ; flopenr     ; work         ;
-;          |decode:dec|          ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|controller:c|decode:dec                    ; decode      ; work         ;
-;       |datapath:dp|            ; 1141 (0)            ; 512 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp                                ; datapath    ; work         ;
+;          |decode:dec|          ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|controller:c|decode:dec                    ; decode      ; work         ;
+;       |datapath:dp|            ; 1137 (0)            ; 512 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp                                ; datapath    ; work         ;
 ;          |adder:pcadd1|        ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|adder:pcadd1                   ; adder       ; work         ;
 ;          |adder:pcadd2|        ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|adder:pcadd2                   ; adder       ; work         ;
-;          |alu:alu|             ; 138 (138)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|alu:alu                        ; alu         ; work         ;
-;          |flopr:pcreg|         ; 121 (121)           ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|flopr:pcreg                    ; flopr       ; work         ;
-;          |mux2:ra1mux|         ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|mux2:ra1mux                    ; mux2        ; work         ;
-;          |mux2:ra2mux|         ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|mux2:ra2mux                    ; mux2        ; work         ;
-;          |mux2:resmux|         ; 31 (31)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|mux2:resmux                    ; mux2        ; work         ;
-;          |mux2:srcbmux|        ; 44 (44)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|mux2:srcbmux                   ; mux2        ; work         ;
-;          |regfile:rf|          ; 736 (736)           ; 480 (480)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|regfile:rf                     ; regfile     ; work         ;
-;    |cmp2:compare|              ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cmp2:compare                                       ; cmp2        ; work         ;
-;    |dmem:dmem|                 ; 1376 (1376)         ; 2048 (2048)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|dmem:dmem                                          ; dmem        ; work         ;
-;    |imem:imem|                 ; 53 (53)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|imem:imem                                          ; imem        ; work         ;
+;          |alu:alu|             ; 132 (132)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|alu:alu                        ; alu         ; work         ;
+;          |flopr:pcreg|         ; 123 (123)           ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|flopr:pcreg                    ; flopr       ; work         ;
+;          |mux2:ra1mux|         ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|mux2:ra1mux                    ; mux2        ; work         ;
+;          |mux2:ra2mux|         ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|mux2:ra2mux                    ; mux2        ; work         ;
+;          |mux2:resmux|         ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|mux2:resmux                    ; mux2        ; work         ;
+;          |mux2:srcbmux|        ; 48 (48)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|mux2:srcbmux                   ; mux2        ; work         ;
+;          |regfile:rf|          ; 742 (742)           ; 480 (480)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|arm:arm|datapath:dp|regfile:rf                     ; regfile     ; work         ;
+;    |cmp2:compare|              ; 19 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cmp2:compare                                       ; cmp2        ; work         ;
+;    |dmem:dmem|                 ; 1373 (1373)         ; 2048 (2048)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|dmem:dmem                                          ; dmem        ; work         ;
+;    |imem:imem|                 ; 112 (112)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|imem:imem                                          ; imem        ; work         ;
 ;    |port:inport|               ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|port:inport                                        ; port        ; work         ;
 ;    |port:outport|              ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|port:outport                                       ; port        ; work         ;
 +--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+-------------+--------------+
@@ -286,19 +286,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|alu:alu|Mux4      ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:resmux|y[24] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:resmux|y[1]  ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:srcbmux|y[5] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:srcbmux|y[0] ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:srcbmux|y[2] ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:srcbmux|y[8] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|alu:alu|Mux4       ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:resmux|y[29]  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:resmux|y[7]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:srcbmux|y[19] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:srcbmux|y[0]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:srcbmux|y[2]  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top|arm:arm|datapath:dp|mux2:srcbmux|y[8]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------+
@@ -503,18 +503,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     CLR SLD           ; 30                          ;
 ;     ENA               ; 2544                        ;
 ;     ENA CLR           ; 2                           ;
-; cycloneiii_lcell_comb ; 2607                        ;
+; cycloneiii_lcell_comb ; 2664                        ;
 ;     arith             ; 90                          ;
 ;         2 data inputs ; 58                          ;
 ;         3 data inputs ; 32                          ;
-;     normal            ; 2517                        ;
+;     normal            ; 2574                        ;
 ;         1 data inputs ; 22                          ;
-;         2 data inputs ; 98                          ;
-;         3 data inputs ; 177                         ;
-;         4 data inputs ; 2220                        ;
+;         2 data inputs ; 35                          ;
+;         3 data inputs ; 162                         ;
+;         4 data inputs ; 2355                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 20.60                       ;
-; Average LUT depth     ; 12.92                       ;
+; Max LUT depth         ; 21.70                       ;
+; Average LUT depth     ; 13.48                       ;
 +-----------------------+-----------------------------+
 
 
@@ -523,7 +523,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:16     ;
+; Top            ; 00:00:20     ;
 +----------------+--------------+
 
 
@@ -533,77 +533,77 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Fri Nov 10 20:26:56 2023
+    Info: Processing started: Fri Nov 17 20:55:40 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top -c top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 18 design units, including 18 entities, in source file top.sv
-    Info (12023): Found entity 1: top File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 6
-    Info (12023): Found entity 2: dmem File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 29
-    Info (12023): Found entity 3: imem File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 44
-    Info (12023): Found entity 4: arm File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 55
-    Info (12023): Found entity 5: controller File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 79
-    Info (12023): Found entity 6: decode File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 101
-    Info (12023): Found entity 7: condlogic File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 158
-    Info (12023): Found entity 8: condcheck File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 182
-    Info (12023): Found entity 9: datapath File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 212
-    Info (12023): Found entity 10: regfile File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 251
-    Info (12023): Found entity 11: extend File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 271
-    Info (12023): Found entity 12: alu File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 287
-    Info (12023): Found entity 13: adder File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 315
-    Info (12023): Found entity 14: flopenr File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 322
-    Info (12023): Found entity 15: flopr File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 332
-    Info (12023): Found entity 16: mux2 File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 342
-    Info (12023): Found entity 17: cmp2 File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 350
-    Info (12023): Found entity 18: port File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 357
+    Info (12023): Found entity 1: top File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 6
+    Info (12023): Found entity 2: dmem File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 29
+    Info (12023): Found entity 3: imem File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 44
+    Info (12023): Found entity 4: arm File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 55
+    Info (12023): Found entity 5: controller File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 79
+    Info (12023): Found entity 6: decode File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 101
+    Info (12023): Found entity 7: condlogic File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 158
+    Info (12023): Found entity 8: condcheck File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 182
+    Info (12023): Found entity 9: datapath File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 212
+    Info (12023): Found entity 10: regfile File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 251
+    Info (12023): Found entity 11: extend File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 271
+    Info (12023): Found entity 12: alu File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 287
+    Info (12023): Found entity 13: adder File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 315
+    Info (12023): Found entity 14: flopenr File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 322
+    Info (12023): Found entity 15: flopr File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 332
+    Info (12023): Found entity 16: mux2 File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 342
+    Info (12023): Found entity 17: cmp2 File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 350
+    Info (12023): Found entity 18: port File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 357
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Info (12128): Elaborating entity "arm" for hierarchy "arm:arm" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 19
-Info (12128): Elaborating entity "controller" for hierarchy "arm:arm|controller:c" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 70
-Info (12128): Elaborating entity "decode" for hierarchy "arm:arm|controller:c|decode:dec" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 95
-Info (12128): Elaborating entity "condlogic" for hierarchy "arm:arm|controller:c|condlogic:cl" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 98
-Info (12128): Elaborating entity "flopenr" for hierarchy "arm:arm|controller:c|condlogic:cl|flopenr:flagreg1" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 170
-Info (12128): Elaborating entity "condcheck" for hierarchy "arm:arm|controller:c|condlogic:cl|condcheck:cc" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 175
-Info (12128): Elaborating entity "datapath" for hierarchy "arm:arm|datapath:dp" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 76
-Info (12128): Elaborating entity "mux2" for hierarchy "arm:arm|datapath:dp|mux2:pcmux" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 231
-Info (12128): Elaborating entity "flopr" for hierarchy "arm:arm|datapath:dp|flopr:pcreg" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 232
-Info (12128): Elaborating entity "adder" for hierarchy "arm:arm|datapath:dp|adder:pcadd1" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 233
-Info (12128): Elaborating entity "mux2" for hierarchy "arm:arm|datapath:dp|mux2:ra1mux" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 237
-Info (12128): Elaborating entity "regfile" for hierarchy "arm:arm|datapath:dp|regfile:rf" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 241
-Info (12128): Elaborating entity "extend" for hierarchy "arm:arm|datapath:dp|extend:ext" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 243
-Info (12128): Elaborating entity "alu" for hierarchy "arm:arm|datapath:dp|alu:alu" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 248
-Info (12128): Elaborating entity "imem" for hierarchy "imem:imem" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 20
-Warning (10850): Verilog HDL warning at top.sv(50): number of words (23) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 50
-Warning (10030): Net "RAM.data_a" at top.sv(47) has no driver or initial value, using a default initial value '0' File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 47
-Warning (10030): Net "RAM.waddr_a" at top.sv(47) has no driver or initial value, using a default initial value '0' File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 47
-Warning (10030): Net "RAM.we_a" at top.sv(47) has no driver or initial value, using a default initial value '0' File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 47
-Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dmem" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 21
-Warning (10850): Verilog HDL warning at top.sv(36): number of words (16) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 36
-Info (12128): Elaborating entity "cmp2" for hierarchy "cmp2:compare" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 23
-Info (12128): Elaborating entity "port" for hierarchy "port:inport" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 25
+Info (12128): Elaborating entity "arm" for hierarchy "arm:arm" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 19
+Info (12128): Elaborating entity "controller" for hierarchy "arm:arm|controller:c" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 70
+Info (12128): Elaborating entity "decode" for hierarchy "arm:arm|controller:c|decode:dec" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 95
+Info (12128): Elaborating entity "condlogic" for hierarchy "arm:arm|controller:c|condlogic:cl" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 98
+Info (12128): Elaborating entity "flopenr" for hierarchy "arm:arm|controller:c|condlogic:cl|flopenr:flagreg1" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 170
+Info (12128): Elaborating entity "condcheck" for hierarchy "arm:arm|controller:c|condlogic:cl|condcheck:cc" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 175
+Info (12128): Elaborating entity "datapath" for hierarchy "arm:arm|datapath:dp" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 76
+Info (12128): Elaborating entity "mux2" for hierarchy "arm:arm|datapath:dp|mux2:pcmux" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 231
+Info (12128): Elaborating entity "flopr" for hierarchy "arm:arm|datapath:dp|flopr:pcreg" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 232
+Info (12128): Elaborating entity "adder" for hierarchy "arm:arm|datapath:dp|adder:pcadd1" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 233
+Info (12128): Elaborating entity "mux2" for hierarchy "arm:arm|datapath:dp|mux2:ra1mux" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 237
+Info (12128): Elaborating entity "regfile" for hierarchy "arm:arm|datapath:dp|regfile:rf" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 241
+Info (12128): Elaborating entity "extend" for hierarchy "arm:arm|datapath:dp|extend:ext" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 243
+Info (12128): Elaborating entity "alu" for hierarchy "arm:arm|datapath:dp|alu:alu" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 248
+Info (12128): Elaborating entity "imem" for hierarchy "imem:imem" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 20
+Warning (10850): Verilog HDL warning at top.sv(50): number of words (44) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 50
+Warning (10030): Net "RAM.data_a" at top.sv(47) has no driver or initial value, using a default initial value '0' File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 47
+Warning (10030): Net "RAM.waddr_a" at top.sv(47) has no driver or initial value, using a default initial value '0' File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 47
+Warning (10030): Net "RAM.we_a" at top.sv(47) has no driver or initial value, using a default initial value '0' File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 47
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dmem" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 21
+Warning (10850): Verilog HDL warning at top.sv(36): number of words (3) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 36
+Info (12128): Elaborating entity "cmp2" for hierarchy "cmp2:compare" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 23
+Info (12128): Elaborating entity "port" for hierarchy "port:inport" File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 25
 Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276007): RAM logic "arm:arm|datapath:dp|regfile:rf|rf" is uninferred due to asynchronous read logic File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 257
-    Info (276007): RAM logic "dmem:dmem|RAM" is uninferred due to asynchronous read logic File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv Line: 33
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/db/top.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/db/top.ram0_dmem_351e6b.hdl.mif" contains "don't care" values -- overwriting them with 0s
+    Info (276007): RAM logic "arm:arm|datapath:dp|regfile:rf|rf" is uninferred due to asynchronous read logic File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 257
+    Info (276007): RAM logic "dmem:dmem|RAM" is uninferred due to asynchronous read logic File: C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv Line: 33
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/db/top.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/db/top.ram0_dmem_351e6b.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/output_files/top.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/output_files/top.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5181 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 5238 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 5163 logic cells
+    Info (21061): Implemented 5220 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 4797 megabytes
-    Info: Processing ended: Fri Nov 10 20:27:36 2023
-    Info: Elapsed time: 00:00:40
-    Info: Total CPU time (on all processors): 00:00:51
+    Info: Peak virtual memory: 4791 megabytes
+    Info: Processing ended: Fri Nov 17 20:56:25 2023
+    Info: Elapsed time: 00:00:45
+    Info: Total CPU time (on all processors): 00:00:55
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/output_files/top.map.smsg.
+The suppressed messages can be found in C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/output_files/top.map.smsg.
 
 

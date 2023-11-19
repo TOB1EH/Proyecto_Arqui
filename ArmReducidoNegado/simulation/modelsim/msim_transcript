@@ -10,10 +10,10 @@
 # Copying C:/intelFPGA_lite/19.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado {C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv}
+# vlog -sv -work work +incdir+C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado {C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:51:20 on Nov 10,2023
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado" C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv 
+# Start time: 20:32:36 on Nov 17,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado" C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/Proyecto_Arqui/ArmReducidoNegado/top.sv 
 # -- Compiling module top
 # -- Compiling module dmem
 # -- Compiling module imem
@@ -35,60 +35,12 @@
 # 
 # Top level modules:
 # 	top
-# End time: 11:51:21 on Nov 10,2023, Elapsed time: 0:00:01
+# End time: 20:32:37 on Nov 17,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 vsim rtl_work.top
 # vsim rtl_work.top 
-# Start time: 11:51:41 on Nov 10,2023
-# Loading sv_std.std
-# Loading rtl_work.top
-# Loading rtl_work.arm
-# Loading rtl_work.controller
-# Loading rtl_work.decode
-# Loading rtl_work.condlogic
-# Loading rtl_work.flopenr
-# Loading rtl_work.condcheck
-# Loading rtl_work.datapath
-# Loading rtl_work.mux2
-# Loading rtl_work.flopr
-# Loading rtl_work.adder
-# Loading rtl_work.regfile
-# Loading rtl_work.extend
-# Loading rtl_work.alu
-# Loading rtl_work.imem
-# Loading rtl_work.dmem
-# Loading rtl_work.cmp2
-# Loading rtl_work.port
-vsim rtl_work.top
-# End time: 11:51:50 on Nov 10,2023, Elapsed time: 0:00:09
-# Errors: 0, Warnings: 0
-# vsim rtl_work.top 
-# Start time: 11:51:50 on Nov 10,2023
-# Loading sv_std.std
-# Loading rtl_work.top
-# Loading rtl_work.arm
-# Loading rtl_work.controller
-# Loading rtl_work.decode
-# Loading rtl_work.condlogic
-# Loading rtl_work.flopenr
-# Loading rtl_work.condcheck
-# Loading rtl_work.datapath
-# Loading rtl_work.mux2
-# Loading rtl_work.flopr
-# Loading rtl_work.adder
-# Loading rtl_work.regfile
-# Loading rtl_work.extend
-# Loading rtl_work.alu
-# Loading rtl_work.imem
-# Loading rtl_work.dmem
-# Loading rtl_work.cmp2
-# Loading rtl_work.port
-vsim rtl_work.top
-# End time: 11:51:55 on Nov 10,2023, Elapsed time: 0:00:05
-# Errors: 0, Warnings: 0
-# vsim rtl_work.top 
-# Start time: 11:51:55 on Nov 10,2023
+# Start time: 20:33:01 on Nov 17,2023
 # Loading sv_std.std
 # Loading rtl_work.top
 # Loading rtl_work.arm
@@ -118,27 +70,17 @@ add wave -position end  sim:/top/MemWrite
 add wave -position end  sim:/top/MemtoReg
 add wave -position end  sim:/top/PortSel
 add wave -position end  sim:/top/PC
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Benja  Hostname: BENJA  ProcessID: 16312
-#           Attempting to use alternate WLF file "./wlft1jyvs7".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft1jyvs7
 add wave -position end  sim:/top/Instr
 add wave -position end  sim:/top/ReadData
 add wave -position end  sim:/top/MemData
 add wave -position end  sim:/top/INData
 add wave -position end  sim:/top/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Benja  Hostname: BENJA  ProcessID: 16312
+#           Attempting to use alternate WLF file "./wlft9f1c0y".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft9f1c0y
 force -freeze sim:/top/clk 1 0, 0 {50 ps} -r 100
-force -freeze sim:/top/resetE 0 0
-run
-# ** Warning: (vsim-7) Failed to open readmem file "C:\Users\Benja\Documents\IUA\Arqui1\ArmReducidoNegado\imem.dat" in read mode.
-# No such file or directory. (errno = ENOENT)    : C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv(50)
-#    Time: 0 ps  Iteration: 0  Instance: /top/imem
-# ** Warning: (vsim-7) Failed to open readmem file "C:\Users\Benja\Documents\IUA\Arqui1\ArmReducidoNegado\dmem_io.dat" in read mode.
-# No such file or directory. (errno = ENOENT)    : C:/Users/PC_ADMIN/Documents/workSpace/SystemVerilog/ArmReducidoNegado/top.sv(36)
-#    Time: 0 ps  Iteration: 0  Instance: /top/dmem
-run
-run
 force -freeze sim:/top/resetE 1 0
 run
 run
@@ -151,6 +93,7 @@ run
 run
 run
 run
+force -freeze sim:/top/resetE 1 0
 run
 run
 run
@@ -164,5 +107,174 @@ run
 run
 run
 run
-# End time: 11:57:12 on Nov 10,2023, Elapsed time: 0:05:17
-# Errors: 0, Warnings: 4
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/top/INport 00001111 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/top/INport 10000000 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 20:55:26 on Nov 17,2023, Elapsed time: 0:22:25
+# Errors: 0, Warnings: 2

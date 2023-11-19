@@ -1,0 +1,107 @@
+//-------------------------------------------------- CODIGO MAIN-------------------------------------
+
+//PROBLEMA SOLO QUEDA EN 1 AL APRETAR
+
+//---------------------------------------------------MENU-----------------------------------------------
+
+//-------------------------R0=0,R1=0
+
+sub r0,r15,r15
+add r1,r0,r0
+
+//------------------------R10 = DELAY TABLA (PRIMER DELAY)
+ldr r10,[r0,0x4]
+
+//------------------------R4 = CANTIDAD DE OPCIONES EN TABLA
+add r4,r0,#4
+
+//------------------------R2=tabla[r1]
+ldr r2,[r1,0x2c]
+
+//------------------------leds(R2)
+str r2,[r0,0x800]
+
+//------------------------button_delay()
+add r3,r0,r10
+
+//------------------------lectura puerto
+ldr r5,[r0,0x800]
+ands r5,r5,#0x80
+bne #44
+
+//------------------------SI SE PRESIONA PULSADOR IR A SWITCH LINEA #68
+b#68
+
+//------------------------fin del button_delay()
+subs r3,r3,#1
+bne #28
+
+//------------------------incrementar indice r1
+add r1,r1,#4
+
+//-----------------------decremento de contador de opciones r4
+subs r4,r4,#1
+bne #16
+//-----------------------reinicio de menu
+b#0
+
+
+//#68---------------------------------------------------SWITCH-------------------------------------------
+//r2 conserva opcion elegida en el proceso
+
+//CASE R2 = 1
+subs r6,r2,#0x1
+beq #100
+
+//CASE R2 = 2
+subs r6,r2,#0x2
+beq #148
+
+//CASE R2 = 4(opcion 3)
+subs r6,r2,#0x4
+beq #156
+
+//CASE R2 = 8(opcion 4)
+subs r6,r2,#0x8
+beq #164
+
+
+
+
+
+//CASE 1:
+//#100--------------------------------------------CARRERA POR TABLA------------------------------
+
+add r1,r0,r0
+//------------------------R10 = DELAY TABLA (SEGUNDO DELAY)
+ldr r10,[r0,0x8]
+//------------------------r4 = 16
+add r4,r0,#16
+//------------------------R2=tabla[r1]
+ldr r2,[r1,0x3c]
+//------------------------leds(r2)
+str r2,[r0,0x800]
+//------------------------delay()
+add r3,r0,r10
+subs r3,r3,#1
+bne #124
+//-----------------------incrementar indice r1
+add r1,r1,#4
+//-----------------------decrementar contador de iteracion
+subs r4,r4,#1
+bne #112
+b#100
+
+
+
+//#148 CASE 2:
+str r2,[r0,0x800]
+b#152
+
+//#156 CASE 3:
+str r2,[r0,0x800]
+b#160
+
+//#164 CASE 4:
+str r2,[r0,0x800]
+b#168

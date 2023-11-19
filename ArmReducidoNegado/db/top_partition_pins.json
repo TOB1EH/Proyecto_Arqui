@@ -48,7 +48,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "INport[7]",
+					"name" : "INport[2]",
 					"strict" : false
 				},
 				{
@@ -60,15 +60,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "INport[6]",
-					"strict" : false
-				},
-				{
 					"name" : "INport[5]",
 					"strict" : false
 				},
 				{
-					"name" : "INport[2]",
+					"name" : "INport[7]",
+					"strict" : false
+				},
+				{
+					"name" : "INport[6]",
 					"strict" : false
 				},
 				{
