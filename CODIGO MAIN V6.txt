@@ -1,0 +1,158 @@
+sub r0,r15,r15
+//-------------------------------------------------- CODIGO MAIN-------------------------------------
+
+//REORGANIZACION DE CODIGO
+
+//---------------------------------------------------MENU-----------------------------------------------
+//-------------------------R0=0,R1=0
+
+
+//#4-----------------------ANTIREBOTE <simulacion = 8 / ejecucion=0x260000>
+//add r6,r0,#8
+ldr r6,[r0,0x10]
+subs r6,r6,#1
+bne #8
+
+add r1,r0,r0
+
+//#20-----------------------R14 = DELAY DE MENU <SIMULACION = 8 / EJECUCION = #e40000 >
+//add r14,r0,#8
+ldr r14,[r0,0x4]
+//------------------------R4 = CANTIDAD DE OPCIONES EN TABLA
+add r4,r0,#4
+
+//------------------------R2=SECUENCIA MENU <tabla[r1]>
+ldr r2,[r1,0x2c]
+
+//------------------------leds(R2)
+str r2,[r0,0x800]
+
+//------------------------delay
+add r3,r0,r14
+
+//#40-----------------------lectura puerto
+ldr r5,[r0,0x800]
+ands r5,r5,#0x80
+bne #56
+
+//#52-----------------------SI SE PRESIONA PULSADOR IR A SWITCH LINEA #68
+b#80
+
+//------------------------fin del delay
+subs r3,r3,#1
+bne #40
+
+//------------------------incrementar indice r1
+add r1,r1,#4
+
+//-----------------------decremento de contador de opciones r4
+subs r4,r4,#1
+bne #28
+//-----------------------reinicio de menu
+b#16
+
+
+//#80---------------------------------------------------SWITCH-------------------------------------------
+//r2 conserva opcion elegida en el proceso
+
+//CASE R2 = 1
+subs r6,r2,#0x1
+beq #112
+
+//CASE R2 = 2
+subs r6,r2,#0x2
+beq #188
+
+//CASE R2 = 4(opcion 3)
+subs r6,r2,#0x4
+beq #264
+
+//CASE R2 = 8(opcion 4)
+subs r6,r2,#0x8
+beq #272
+
+
+//CASE 1:
+//#112--------------------------------------------CARRERA POR TABLA------------------------------
+
+//------------------------ANTIREBOTE <simulacion = 8 / ejecucion=0x260000>
+//add r6,r0,#8
+ldr r6,[r0,0x10]
+subs r6,r6,#1
+bne #116
+
+//#124
+add r1,r0,r0
+
+//------------------------R13 = DELAY <simulacion=1,ejecucion = 0x3f0000>
+//add r13,r0,#1
+ldr r13,[r0,0x8]
+//------------------------r4 = 16
+add r4,r0,#16
+//#136----------------------R2=tabla[r1] posicion 20 de tabla
+ldr r2,[r1,0x3c]
+//------------------------leds(r2)
+str r2,[r0,0x800]
+//------------------------delay()
+add r3,r0,r13
+
+//#148-----------------------boton retorno a menu
+ldr r6,[r0,0x800]
+ands r6,r6,#0x80
+bne #164
+b#4
+//#164
+subs r3,r3,#1
+bne #148
+//-----------------------incrementar indice r1
+add r1,r1,#4
+//-----------------------decrementar contador de iteracion
+subs r4,r4,#1
+bne #136
+b#124
+
+
+//CASE 2:
+//#188--------------------------------------------SUMO POR TABLA------------------------------
+//------------------------ANTIREBOTE <simulacion = 8 / ejecucion=0x260000>
+//add r6,r0,#8
+ldr r6,[r0,0x10]
+subs r6,r6,#1
+bne #192
+
+add r1,r0,r0
+//------------------------R13 = DELAY <simulacion=1,ejecucion = 0x3f0000>
+//add r12,r0,#1
+ldr r12,[r0,0xc]
+//------------------------r4 = 15
+add r4,r0,#15
+//------------------------R2=tabla[r1] posicion 31 de tabla
+ldr r2,[r1,0x7c]
+//------------------------leds(r2)
+str r2,[r0,0x800]
+//------------------------delay()
+add r3,r0,r12
+
+//------------------------boton retorno a menu
+ldr r6,[r0,0x800]
+ands r6,r6,#0x80
+bne #240
+b#4
+
+//#240
+subs r3,r3,#1
+bne #224
+//-----------------------incrementar indice r1
+add r1,r1,#4
+//-----------------------decrementar contador de iteracion
+subs r4,r4,#1
+bne #212
+b#200
+
+
+
+str r2,[r0,#0x800]
+b#268
+
+str r2,[r0,#0x800]
+b#276
