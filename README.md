@@ -2,9 +2,9 @@
 
 Proyecto de la materia Arquitectura de Computadoras I, basado en la implementacion de un programa en assembly/systemVerilog para el manejo de la placa DE0-nano. Prendiendo los leds, hacemos las secuencias de:
 - Carrera por tabla
-- Sumo por tabla
+- Viborita por tabla
 - AutoFantastico por algoritmo
-- (Secuencia Faltante)
+- Bomba por algoritmo
   
 ### Integrantes
 
