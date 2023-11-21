@@ -1,0 +1,203 @@
+sub r0,r15,r15
+//-------------------------------------------------- CODIGO MAIN-------------------------------------
+
+//V8 CAMBIO SUMO POR VIBORITA
+
+
+//#4--------------------------------------------------CONTRASEÑA------------------------------------------------     
+LDR R9, [R0, #0x4]   
+ADD R5, R0, #3       
+ADD R7, R0, #1       
+ADD R6, R0, #1       
+STR R6, [R0, #0x800] 
+LDR R11, [R0, #0x800]
+ANDS R11, R11, #0x80 
+BNE #24              
+LDR R12, [R0, #0x14]  
+SUBS R12, R12, #1    
+BNE #40              
+LDR R12, [R0, #0x800]
+AND R12, R12, R9     
+SUBS R12, R12, R9    
+BNE #68
+//--------------------------------------SALTO A MENU              
+B #132                
+//-------------------------------------CONTADOR DE ERRORES           
+ADD R7, R7, R7       
+ADD R6, R6, R7       
+SUBS R5, R5, #1      
+BNE #20      
+//-------------------------------------SE ACABAN INTENTOS        
+B #88               
+
+//#88------------------------------------CONTRASEÑA INCORRECTA(titilan todos los leds por siempre)  
+ADD R1, R0, #0xff       
+STR R1, [R0, #0x800]
+//-------------posicion 12 tabla
+//-------------DELAY()
+ldr r2,[r0,0xc]
+subs r2,r2,#1
+bne#100
+add r1,r0,r0
+str r1,[r0,0x800]
+ldr r2,[r0,0xc]
+subs r2,r2,#1
+bne#120
+B #88 
+
+
+
+//#132--------------------------------------------------MENU-----------------------------------------------
+//-------------------------R0=0,R1=0
+
+
+//----------------------------ANTIREBOTE <simulacion = 8 / ejecucion=0x260000>
+//add r6,r0,#8
+ldr r6,[r0,0x14]
+subs r6,r6,#1
+bne #136
+//#144-------------------------------------------------------
+add r1,r0,r0
+
+//#148-----------------------R14 = DELAY DE MENU <SIMULACION = 8 / EJECUCION = #e40000 >
+//add r14,r0,#8
+ldr r14,[r0,0x8]
+//------------------------R4 = CANTIDAD DE OPCIONES EN TABLA
+add r4,r0,#4
+
+//#156------------------------R2=SECUENCIA MENU <tabla[r1]>
+ldr r2,[r1,0x30]
+
+//------------------------leds(R2)
+str r2,[r0,0x800]
+
+//------------------------delay
+add r3,r0,r14
+
+//#168-----------------------lectura puerto
+ldr r5,[r0,0x800]
+ands r5,r5,#0x80
+bne #184
+
+//-------------------------SI SE PRESIONA PULSADOR IR A SWITCH LINEA #68
+b#208
+
+//#184------------------------fin del delay
+subs r3,r3,#1
+bne #168
+
+//------------------------incrementar indice r1
+add r1,r1,#4
+
+//-----------------------decremento de contador de opciones r4
+subs r4,r4,#1
+bne #156
+//-----------------------reinicio de menu
+b#144
+
+
+//#208---------------------------------------------------SWITCH-------------------------------------------
+//r2 conserva opcion elegida en el proceso
+
+//CASE R2 = 1
+subs r6,r2,#0x1
+beq #240
+
+//CASE R2 = 2
+subs r6,r2,#0x2
+beq #316
+
+//CASE R2 = 4(opcion 3)
+subs r6,r2,#0x4
+beq #392
+
+//CASE R2 = 8(opcion 4)
+subs r6,r2,#0x8
+beq #400
+
+
+//CASE 1:
+//#240--------------------------------------------CARRERA POR TABLA------------------------------
+
+//------------------------ANTIREBOTE <simulacion = 8 / ejecucion=0x260000>
+//add r6,r0,#8
+ldr r6,[r0,0x14]
+subs r6,r6,#1
+bne #244
+
+//#252
+add r1,r0,r0
+
+//------------------------R13 = DELAY <simulacion=1,ejecucion = 0x3f0000>
+//add r13,r0,#1
+ldr r13,[r0,0xc]
+//------------------------r4 = 16
+add r4,r0,#16
+//#264----------------------R2=tabla[r1] posicion de tabla
+ldr r2,[r1,0x40]
+//------------------------leds(r2)
+str r2,[r0,0x800]
+//------------------------delay()
+add r3,r0,r13
+
+//#276-----------------------boton retorno a menu
+ldr r6,[r0,0x800]
+ands r6,r6,#0x80
+bne #292
+b#132
+//#292
+subs r3,r3,#1
+bne #276
+//-----------------------incrementar indice r1
+add r1,r1,#4
+//-----------------------decrementar contador de iteracion
+subs r4,r4,#1
+bne #264
+b#252
+
+
+//CASE 2:
+//#316--------------------------------------------VIBORITA TABLA------------------------------
+//------------------------ANTIREBOTE <simulacion = 8 / ejecucion=0x260000>
+//add r6,r0,#8
+ldr r6,[r0,0x14]
+subs r6,r6,#1
+bne #320
+//#328----------------------------------------------
+add r1,r0,r0
+//------------------------R13 = DELAY <simulacion=1,ejecucion = 0x3f0000>
+//add r12,r0,#1
+ldr r12,[r0,0x10]
+//------------------------r4 = 25
+add r4,r0,#25
+//#340-----------------------R2=tabla[r1] posicion 32 de tabla
+ldr r2,[r1,0x80]
+//------------------------leds(r2)
+str r2,[r0,0x800]
+//------------------------delay()
+add r3,r0,r12
+
+//#352-----------------------boton retorno a menu
+ldr r6,[r0,0x800]
+ands r6,r6,#0x80
+bne #368
+b#132
+
+//#368
+subs r3,r3,#1
+bne #352
+//-----------------------incrementar indice r1
+add r1,r1,#4
+//-----------------------decrementar contador de iteracion
+subs r4,r4,#1
+bne #340
+b#328
+
+
+//#392
+str r2,[r0,#0x800]
+b#396
+
+//#400
+str r2,[r0,#0x800]
+b#404
