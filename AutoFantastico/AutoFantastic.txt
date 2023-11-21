@@ -27,42 +27,6 @@ E2522001
 1AFFFFF7
 EAFFFFF3
 
-	
-
-// Desplazamiento a izquierda 
-SUB R0, R15, R15
-ADD R1, R0, #1
-ADD R2, R0, #8
-STR R1, [R0, #0x800]
-LDR R3, [R0, #0x4]
-SUBS R3, R3, #1
-BNE #20
-ADD R1, R1, R1
-SUBS R2, R2, #1
-BNE #12
-B #4
-
-
-// Desplazamiento a derecha
-SUB R0, R15, R15
-ADD R1, R0, #128
-ADD R2, R0, #8
-STR R1, [R0, 0x800]
-LDR R3, [R0, #0x4]
-SUBS R3, R3, #1
-BNE #20
-
-ADD R4, R0, #0
-ADD R4, R4, #1
-SUBS R1, R1, #2
-BNE #32
-
-ADD R1, R4, R0
-SUBS R2, R2, #1
-BNE #12
-B #4
-
-
 // --- AUTO FANTASTICO X ALGORITMO ---
 
 // Iniciamos a cero el registro cero 
@@ -135,28 +99,58 @@ BNE #44
 B #4
 
 
-// --- AUTO FANTASTICO X ALGORITMO (SIN COMENTARIOS)---
 
-SUB R0, R15, R15
-ADD R1, R0, #1
-ADD R2, R0, #8
-STR R1, [R0, #0x800]
-LDR R3, [R0, #0x4]
-SUBS R3, R3, #1
-BNE #20
-ADD R1, R1, R1
-SUBS R2, R2, #1
-BNE #12
-ADD R2, R0, #6
-ADD R4, R0, #0
-ADD R4, R4, #1 
-SUBS R1, R1, #2
-BNE #48
-ADD R1, R4, R0
-STR R1, [R0, 0x800]
-LDR R3, [R0, #0x4]
-SUBS R3, R3, #1
-BNE #72
-SUBS R2, R2, #1
-BNE #44
-B #4
+
+
+// --- AUTO FANTASTICO X ALGORITMO ---
+
+0            SUB R0, R15, R15          // SETEA R0 EN CERO
+1            ADD R1, R0, #1            // SETEA R1 EN UNO
+2            ADD R2, R0, #7            // SETEA R2 EN SIETE (CONTADOR DESPLAZAMIENTO A IZQUIERDA)
+3            STR R1, [R0, #0x800]      // ENCIENDE LED CARGADO EN R1
+4            LDR R3, [R0, #0x4]        // LEE DE TABLA EL DELAY Y LO SETEA EN R3
+5            SUBS R3, R3, #1           // RESTA DELAY (EMPIEZA DELAY)
+6            BNE #20                   // VUELVE AL SUBS PARA RESTAR TIEMPO AL DELAY (CUANDO TERMINA, APAGA BNE)
+7            ADD R1, R1, R1            // SUMA R1 MAS R1, OBTIENE EL DOBLE
+8            STR R1, [R0, #0x800]      // ENCIENDE LED CARGADO EN R1
+9            LDR R3, [R0, #0x4]        // LEE DE TABLA EL DELAY Y LO SETEA EN R3
+10           SUBS R3, R3, #1           // RESTA DELAY (EMPIEZA DALAY)
+11           BNE #40                   // VUELVE AL SUBS PARA RESTAR TIEMPO AL DELAY (CUANDO TERMINA)
+12           SUBS R2, R2, #1           // RESTA EL CONTADOR EN UNO
+13           BNE #28                   // CUANDO CONTADOR SEA CERO APAGA BNE
+14           ADD R2, R0, #6            // INICIA UN NUEVO CONTADOR EN SEIS
+15           ADD R4, R0, R0            // SETEA R4 EN CERO
+                                       // DIVISION:
+16           ADD R4, R4, #1            // SUMA R4 MAS UNO Y ALMACENA EN R4
+17           SUBS R1, R1, #2           // RESTA DOS A R1 Y ALMACENA EN R1
+18           BNE #64                   // VULVE A DIVISION (CUANDO TERMINA, APAGA BNE)
+19           ADD R1, R4, R0            // ALMACENA R4 EN R1
+20           STR R1, [R0, 0x800]       // ENCIENDE LED CARGADO EN R1
+21           LDR R3, [R0, #0x4]        // LEE DE TABLA EL DELAY Y LO SETEA EN R3
+22           SUBS R3, R3, #1           // RESTA DELAY (EMPIEZA DALAY)
+23           BNE #88                   // VUELVE AL SUBS PARA RESTAR TIEMPO AL DELAY (CUANDO TERMINA)
+24           SUBS R2, R2, #1           // DECREMENTA EL CONTADOR
+25           BNE #60                   // VUELVE AL SUBS PARA RESTAR TIEMPO AL DELAY (CUANDO TERMINA)
+26           B #4                      // INICIA EL ALGORITMO NUEVAMENTE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
